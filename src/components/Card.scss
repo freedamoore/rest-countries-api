@@ -1,0 +1,16 @@
+.Card{
+    width: 250px;
+    background-color: yellow;
+
+    &__img{
+        display: block;
+        // height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &__txt{
+        padding: 1rem;
+    }
+}
+
