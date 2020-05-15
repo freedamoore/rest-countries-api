@@ -3,9 +3,9 @@ import './Card.scss';
 
 const Card = ({country, population, region, capital, flag}) => {
     return (
-        <div className="Card">
-            <img className="Card__img" src={ flag } alt="Country Flag" />
-            <div className="Card__txt">
+        <div className="card">
+            <img className="card__img" src={ flag } alt="Country Flag" />
+            <div className="card__txt">
                 <h2>{ country }</h2>
                 <p>Population: { population }</p>
                 <p>Region: { region }</p>

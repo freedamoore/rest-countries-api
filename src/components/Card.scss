@@ -1,8 +1,10 @@
-.Card{
+.card{
     width: 250px;
-    background-color: yellow;
+    background-color: var(--color-dark-blue-1);
+    border-radius: 5px;
 
     &__img{
+        border-radius: 5px 5px 0 0;
         display: block;
         height: 150px;
         width: 250px;
@@ -10,7 +12,11 @@
     }
 
     &__txt{
-        padding: 1rem;
+        padding: 2rem 1.5rem;
+        line-height: 2em;
     }
 }
 
+.light-mode-card{
+    background-color: var(--color-white);
+  }

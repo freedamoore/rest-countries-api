@@ -1,9 +1,17 @@
 :root{
-  --color-gradient-1: #8930e8;
-  --color-gradient-2: #30e8bd;
-  --color-gradient-3: #e8e230;
-  --color-gradient-4: #e8308c;
-  --primary-font-color: #545454;
+  --color-dark-blue-1: hsl(209, 23%, 22%);
+  --color-dark-blue-2: hsl(207, 26%, 17%);
+  --color-dark-blue-3: hsl(200, 15%, 8%);
+  --color-darK-grey: hsl(0, 0%, 52%);
+  --color-light-grey: hsl(0, 0%, 98%);
+  --color-white: hsl(0, 0%, 100%);
+
+/* - Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
+- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
+- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
+- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
+- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
+- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%) */
 }
 
 *,
@@ -26,9 +34,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: var(--color-dark-blue-2);
+  color: var(--color-white);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.light-mode{
+  background-color: var(--color-light-grey);
+  color: var(--color-dark-blue-3);
 }

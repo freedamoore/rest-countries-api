@@ -5,6 +5,7 @@ import Header from './components/Header';
 import CardList from './components/CardList';
 import SearchBox from './components/SearchBox';
 import FilterBox from './components/FilterBox';
+import Scroll from './components/Scroll';
 
 class App extends Component {
 
@@ -29,10 +30,8 @@ class App extends Component {
   }
 
   componentDidMount(){
-    const allCountries = 'https://restcountries.eu/rest/v2/all';
-    fetch(allCountries)
+    fetch('https://restcountries.eu/rest/v2/all')
     .then(response => response.json())
-    // .then(data => console.log(data))
     .then(data => this.setState({countries: data}));
   }
 
@@ -45,15 +44,25 @@ class App extends Component {
       return country.name.toLowerCase().includes(this.state.searchField.toLowerCase());
     });
 
-    return (
-      <div className="App">
-        <Header />
-        <SearchBox searchChange = { this.onSearchChange } />
-        <FilterBox filterChange = { this.onFilterChange } />
-        <CardList countries={filteredCountries}/>
-       
-      </div>
-    );
+    if(!this.state.countries.length){
+      return <h1>Loading...</h1>
+    }
+    else{  
+      return (
+        <div className="App">
+          <Header />
+          <SearchBox searchChange = { this.onSearchChange } />
+          <FilterBox filterChange = { this.onFilterChange } />
+          <Scroll>
+            <CardList countries={filteredCountries}/>
+          </Scroll>
+          <div class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+            Coded by <a href="https://freedamoore.github.io/" target="_blank">Freeda Moore</a>.
+          </div>
+        </div>
+      );
+    }
   }
 
 }
