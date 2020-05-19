@@ -1,6 +1,7 @@
 .card{
     width: 250px;
     background-color: var(--color-dark-blue-1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
 
     &__img{
@@ -15,8 +16,9 @@
         padding: 2rem 1.5rem;
         line-height: 2em;
     }
+
+    &__light{
+        background-color: var(--color-white);
+    }
 }
 
-.light-mode-card{
-    background-color: var(--color-white);
-  }

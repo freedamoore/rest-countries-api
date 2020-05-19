@@ -1,7 +1,9 @@
 import React from 'react';
+import './SearchBox.scss';
 
 const SearchBox = ({ searchChange }) => (
-    <input type='search' 
+    <input className="searchBox" 
+        type='search' 
         placeholder='Search for a country...'
         onChange={searchChange}
      />

@@ -44,7 +44,9 @@ code {
     monospace;
 }
 
+
 .light-mode{
   background-color: var(--color-light-grey);
   color: var(--color-dark-blue-3);
 }
+

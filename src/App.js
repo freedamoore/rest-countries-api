@@ -6,6 +6,7 @@ import CardList from './components/CardList';
 import SearchBox from './components/SearchBox';
 import FilterBox from './components/FilterBox';
 import Scroll from './components/Scroll';
+import Wrapper from './components/Wrapper';
 
 class App extends Component {
 
@@ -29,6 +30,12 @@ class App extends Component {
     this.setState({ filterField: event.target.value });
   }
 
+  toggleDarkMode = () =>{
+    document.body.classList.toggle("light-mode");
+    document.querySelector('.header').classList.toggle("header__light");
+    this.setState({ darkMode: !this.state.darkMode})
+ }
+
   componentDidMount(){
     fetch('https://restcountries.eu/rest/v2/all')
     .then(response => response.json())
@@ -50,16 +57,19 @@ class App extends Component {
     else{  
       return (
         <div className="App">
-          <Header />
-          <SearchBox searchChange = { this.onSearchChange } />
-          <FilterBox filterChange = { this.onFilterChange } />
-          <Scroll>
-            <CardList countries={filteredCountries}/>
-          </Scroll>
-          <div class="attribution">
+          <Header toggleDarkMode={this.toggleDarkMode}/>
+          <Wrapper>
+            <SearchBox searchChange = { this.onSearchChange } />
+            <FilterBox filterChange = { this.onFilterChange } />
+          </Wrapper>
+          {/* <Scroll> */}
+            <CardList countries={filteredCountries} isDarkMode={this.state.darkMode}/>
+          
+          <div className="attribution">
             Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
             Coded by <a href="https://freedamoore.github.io/" target="_blank">Freeda Moore</a>.
           </div>
+          {/* </Scroll> */}
         </div>
       );
     }
