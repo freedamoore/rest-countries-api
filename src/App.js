@@ -5,7 +5,6 @@ import Header from './components/Header';
 import CardList from './components/CardList';
 import SearchBox from './components/SearchBox';
 import FilterBox from './components/FilterBox';
-import Scroll from './components/Scroll';
 import Wrapper from './components/Wrapper';
 
 import {setSearchField, setFilterField } from './redux/actions';
@@ -25,7 +24,6 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-
 class App extends Component {
 
   constructor(){
@@ -34,19 +32,8 @@ class App extends Component {
     this.state = {
       countries: [],
       darkMode: false,
-      // searchField:'',
-      // filterField:''
     };
   }
-
-  // onSearchChange = (event) => {
-  //   this.setState({ searchField: event.target.value });
-  // }
-
-  // onFilterChange = (event) => {
-  //   console.log(event.target.value);
-  //   this.setState({ filterField: event.target.value });
-  // }
 
   toggleDarkMode = () =>{
     document.body.classList.toggle("light-mode");
@@ -83,21 +70,16 @@ class App extends Component {
             <SearchBox searchChange = { onSearchChange } />
             <FilterBox filterChange = { onFilterChange } />
           </Wrapper>
-          {/* <Scroll> */}
             <CardList countries={filteredCountries} isDarkMode={this.state.darkMode}/>
-          
           <div className="attribution">
             Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
             Coded by <a href="https://freedamoore.github.io/" target="_blank">Freeda Moore</a>.
           </div>
-          {/* </Scroll> */}
         </div>
       );
     }
   }
 
 }
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
