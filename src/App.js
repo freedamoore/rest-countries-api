@@ -8,6 +8,24 @@ import FilterBox from './components/FilterBox';
 import Scroll from './components/Scroll';
 import Wrapper from './components/Wrapper';
 
+import {setSearchField, setFilterField } from './redux/actions';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => {
+  return {
+    searchField: state.searchField,
+    filterField: state.filterField
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+    onFilterChange: (event) => dispatch(setFilterField(event.target.value))
+  }
+}
+
+
 class App extends Component {
 
   constructor(){
@@ -16,19 +34,19 @@ class App extends Component {
     this.state = {
       countries: [],
       darkMode: false,
-      searchField:'',
-      filterField:''
+      // searchField:'',
+      // filterField:''
     };
   }
 
-  onSearchChange = (event) => {
-    this.setState({ searchField: event.target.value });
-  }
+  // onSearchChange = (event) => {
+  //   this.setState({ searchField: event.target.value });
+  // }
 
-  onFilterChange = (event) => {
-    console.log(event.target.value);
-    this.setState({ filterField: event.target.value });
-  }
+  // onFilterChange = (event) => {
+  //   console.log(event.target.value);
+  //   this.setState({ filterField: event.target.value });
+  // }
 
   toggleDarkMode = () =>{
     document.body.classList.toggle("light-mode");
@@ -43,15 +61,18 @@ class App extends Component {
   }
 
   render(){
-    const filteredRegion = this.state.countries.filter(country => {
-      return country.region.toLowerCase().includes(this.state.filterField.toLowerCase());
+    const { countries } = this.state;
+    const { searchField, onSearchChange, filterField, onFilterChange } = this.props;
+
+    const filteredRegion = countries.filter(country => {
+      return country.region.toLowerCase().includes(filterField.toLowerCase());
     });
 
     const filteredCountries = filteredRegion.filter(country =>{
-      return country.name.toLowerCase().includes(this.state.searchField.toLowerCase());
+      return country.name.toLowerCase().includes(searchField.toLowerCase());
     });
 
-    if(!this.state.countries.length){
+    if(!countries.length){
       return <h1>Loading...</h1>
     }
     else{  
@@ -59,8 +80,8 @@ class App extends Component {
         <div className="App">
           <Header toggleDarkMode={this.toggleDarkMode}/>
           <Wrapper>
-            <SearchBox searchChange = { this.onSearchChange } />
-            <FilterBox filterChange = { this.onFilterChange } />
+            <SearchBox searchChange = { onSearchChange } />
+            <FilterBox filterChange = { onFilterChange } />
           </Wrapper>
           {/* <Scroll> */}
             <CardList countries={filteredCountries} isDarkMode={this.state.darkMode}/>
@@ -77,4 +98,6 @@ class App extends Component {
 
 }
 
-export default App;
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
