@@ -3,11 +3,11 @@ import './CardList.scss';
 
 import Card from './Card';
 
-const CardList = ({countries, isDarkMode}) => (
+const CardList = ({countries, darkMode}) => (
     <div className="CardList">
     {
         countries.map((country, i) => {
-            return (<Card isDarkMode={isDarkMode} 
+            return (<Card darkMode={darkMode} 
                     key={i}
                     country={countries[i].name} 
                     population={countries[i].population} 

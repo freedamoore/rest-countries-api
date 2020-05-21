@@ -1,9 +1,10 @@
 import React from 'react';
 import './Card.scss';
 
-const Card = ({country, population, region, capital, flag, isDarkMode}) => {
+const Card = ({country, population, region, capital, flag, darkMode}) => {
+    const color = darkMode? 'var(--color-dark-blue-1)': 'white';
     return (
-        <div className="card" style={{backgroundColor: isDarkMode ? 'white': 'var(--color-dark-blue-1)'}}>
+        <div className="card" style={{backgroundColor: color}}>
             <img className="card__img" src={ flag } alt="Country Flag" />
             <div className="card__txt">
                 <h2>{ country }</h2>
