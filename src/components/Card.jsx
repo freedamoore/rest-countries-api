@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './Card.scss';
 
 const Card = ({country, population, region, capital, flag, darkMode}) => {
