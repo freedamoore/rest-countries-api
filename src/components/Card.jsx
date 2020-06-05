@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { numberWithCommas } from '../utilities.js';
 import './Card.scss';
 
 const Card = ({country, population, region, capital, flag, darkMode}) => {
@@ -9,7 +9,7 @@ const Card = ({country, population, region, capital, flag, darkMode}) => {
             <img className="card__img" src={ flag } alt="Country Flag" />
             <div className="card__txt">
                 <h2>{ country }</h2>
-                <p>Population: { population }</p>
+                <p>Population: { numberWithCommas(population) }</p>
                 <p>Region: { region }</p>
                 <p>Capital: { capital }</p>
             </div>

@@ -1,0 +1,25 @@
+.CountryDetails{
+
+    &__body{
+        display: flex;
+    }
+
+    &__img{
+        display: block;
+        height: 150px;
+        width: 250px;
+        object-fit: cover;
+    }
+
+    &__facts{
+        display: flex;
+
+        &--1{
+            margin-right: 3rem;
+        }
+    }
+
+    &__border{
+        display: flex;
+    }
+}

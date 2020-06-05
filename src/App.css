@@ -2,3 +2,7 @@
     text-align: center;
     padding: 1rem;
 }
+
+.attribution a {
+    color: orangered;
+}
