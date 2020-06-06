@@ -26,7 +26,7 @@ class CountryDetails extends Component{
         return (
             <div className="CountryDetails">
                 <Link to={'/rest-countries-api/'} style={{ color: 'inherit', textDecoration: 'none' }}>
-                    Back
+                    <button className="CountryDetails__btn">&larr; Back</button>
                 </Link>
                 <div className="CountryDetails__body">
                     <div>

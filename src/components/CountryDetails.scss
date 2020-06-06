@@ -2,12 +2,30 @@
 
     &__body{
         display: flex;
+        justify-content:space-evenly;
+        margin: 5rem;
+    }
+
+    &__btn{
+        background-color: inherit;
+        border: 0;
+        border-width: 2px;
+        border-color: var(--color-darK-grey);
+        border-style: solid;
+        border-radius: 5px;
+        color: inherit;
+        padding: 0.5rem 1.5rem;
+        margin: 1rem 5rem;
+    }
+
+    &__btn:hover{
+        cursor: pointer;
     }
 
     &__img{
         display: block;
-        height: 150px;
-        width: 250px;
+        height: 210px;
+        width: 350px;
         object-fit: cover;
     }
 
