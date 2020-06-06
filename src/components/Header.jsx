@@ -14,7 +14,7 @@ const Header = ({toggleDarkMode}) => {
     return(
     <div>
         <header className="header">
-            <h1>Where in the World?</h1>
+            <h1 className="header__txt">Where in the World?</h1>
             <button className="header__btn" onClick={changeDOM}>Dark Mode</button>
         </header>
     </div>
