@@ -23,6 +23,14 @@ class CountryDetails extends Component{
     
     render(){
         const { countryDetails } = this.state;
+
+        // Some fields return an array of objects. Use this function to retrieve and display them
+        const getArrayObjectItems = (arr) =>{
+            return (typeof arr !== 'undefined') ? 
+            arr.map(item => <span>{item.name} </span>) : 
+            null;
+        }
+
         return (
             <div className="CountryDetails">
                 <Link to={'/rest-countries-api/'} style={{ color: 'inherit', textDecoration: 'none' }}>
@@ -46,8 +54,8 @@ class CountryDetails extends Component{
                             </div>
                             <div className="CountryDetails__facts--2">
                                 <p>Top Level Domain: {countryDetails.topLevelDomain}</p>
-                                <p>Currencies: countryDetails.currencies</p>
-                                <p>Languages: countryDetails.languages</p>
+                                <p>Currencies: {getArrayObjectItems(countryDetails.currencies)}</p>
+                                <p>Languages: {getArrayObjectItems(countryDetails.languages)}</p>
                             </div>
                         </div>
                         <div className="CountryDetails__border">
