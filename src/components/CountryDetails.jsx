@@ -31,16 +31,22 @@ class CountryDetails extends Component{
             null;
         }
 
+        const getBorderCountries = (arr) =>{
+            return (typeof arr !== 'undefined') ? 
+            arr.map(item => <span className="CountryDetails__border-countries">{item} </span>) : 
+            null;
+        }
+
         return (
             <div className="CountryDetails">
                 <Link to={'/rest-countries-api/'} style={{ color: 'inherit', textDecoration: 'none' }}>
                     <button className="CountryDetails__btn">&larr; Back</button>
                 </Link>
                 <div className="CountryDetails__body">
-                    <div>
+                    <div className="CountryDetails__img-section">
                         <img className="CountryDetails__img"src={countryDetails.flag} alt="flag"/>
                     </div>
-                    <div>
+                    <div className="CountryDetails__txt-section">
                         <div>
                             <h1>{countryDetails.name}</h1>
                         </div>
@@ -60,7 +66,7 @@ class CountryDetails extends Component{
                         </div>
                         <div className="CountryDetails__border">
                             <div>Border Countries</div>
-                            <div>: countryDetails.borders</div>
+                            <div>: {getBorderCountries(countryDetails.borders)}</div>
                         </div>
                     </div>
                 </div>
