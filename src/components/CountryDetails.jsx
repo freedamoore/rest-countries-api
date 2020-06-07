@@ -48,25 +48,25 @@ class CountryDetails extends Component{
                     </div>
                     <div className="CountryDetails__txt-section">
                         <div>
-                            <h1>{countryDetails.name}</h1>
+                            <h1 className="CountryDetails__country-heading">{countryDetails.name}</h1>
                         </div>
                         <div className="CountryDetails__facts">
                             <div className="CountryDetails__facts--1">
-                                <p>Native Name: {countryDetails.nativeName} </p>
-                                <p>Population: {numberWithCommas(countryDetails.population)} </p>
-                                <p>Region: {countryDetails.region}</p>
-                                <p>Sub Region: {countryDetails.subregion}</p>
-                                <p>Capital: {countryDetails.capital}</p>
+                                <p><strong>Native Name:</strong> {countryDetails.nativeName} </p>
+                                <p><strong>Population:</strong> {numberWithCommas(countryDetails.population)} </p>
+                                <p><strong>Region:</strong> {countryDetails.region}</p>
+                                <p><strong>Sub Region:</strong> {countryDetails.subregion}</p>
+                                <p><strong>Capital:</strong> {countryDetails.capital}</p>
                             </div>
                             <div className="CountryDetails__facts--2">
-                                <p>Top Level Domain: {countryDetails.topLevelDomain}</p>
-                                <p>Currencies: {getArrayObjectItems(countryDetails.currencies)}</p>
-                                <p>Languages: {getArrayObjectItems(countryDetails.languages)}</p>
+                                <p><strong>Top Level Domain:</strong> {countryDetails.topLevelDomain}</p>
+                                <p><strong>Currencies:</strong> {getArrayObjectItems(countryDetails.currencies)}</p>
+                                <p><strong>Languages:</strong> {getArrayObjectItems(countryDetails.languages)}</p>
                             </div>
                         </div>
                         <div className="CountryDetails__border">
-                            <div>Border Countries</div>
-                            <div>: {getBorderCountries(countryDetails.borders)}</div>
+                            <div><strong>Border Countries: </strong></div>
+                            <div> {getBorderCountries(countryDetails.borders)}</div>
                         </div>
                     </div>
                 </div>

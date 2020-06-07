@@ -9,6 +9,7 @@
 
     &__txt-section{
         margin-left: 5rem;
+        line-height: 2em;
     }
 
     &__btn{
@@ -27,10 +28,14 @@
         cursor: pointer;
     }
 
+    &__country-heading{
+        margin-bottom: 1rem;
+    }
+
     &__img{
         display: block;
-        height: 210px;
-        width: 350px;
+        height: 300px;
+        width: 500px;
         object-fit: cover;
     }
 
@@ -38,7 +43,7 @@
         display: flex;
 
         &--1{
-            margin-right: 3rem;
+            margin-right: 5rem;
         }
     }
 
@@ -51,5 +56,38 @@
         border-radius: 3px;
         padding: .25rem;
         margin: 0 .25rem;
+    }
+
+    @media only screen and (max-width: 1300px){
+        &__body{
+            margin-top: 1rem;
+            flex-direction: column;
+        }
+
+        &__txt-section{
+            margin-left: 0;
+            margin-top: 3rem;
+        }
+    }
+
+    @media only screen and (max-width: 900px){
+        &__facts{
+            flex-direction: column;
+        }
+    }
+
+    @media only screen and (max-width: 600px){
+        &__body{
+            margin: 1rem;
+        }
+
+        &__btn{
+            margin: 1rem;
+        }
+
+        &__img{
+            height: 210px;
+            width: 350px;
+        }
     }
 }
